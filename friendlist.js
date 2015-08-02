@@ -20,7 +20,9 @@ RemoteStorage.defineModule('opennameFriendList', function(privateClient, publicC
       getFriends: function() {
         return privateClient.getAll('');
       },
-      removeFriend: privateClient.remove.bind(privateClient)
+      removeFriend: function(username) {
+        privateClient.remove(username);
+      }
     }
   };
 });

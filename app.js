@@ -90,11 +90,19 @@ var App = React.createClass({
         alert("user not found")
       });
   },
+  handleDeleteFriend: function(e) {
+    e.preventDefault();
+    username = e.target.dataset["username"];
+    remoteStorage.opennameFriendList.removeFriend(username);
+    var friends = this.state.friends;
+    delete friends[username];
+    this.setState({friends: friends});
+  },
   render: function() {
     var friends = [];
     $.each(this.state.friends, function(id, friend) {
       friends.push((
-        <li onClick={this.handleLoadFriend} key={id} data-username={friend.username} className="friend">{friend.username}</li>
+        <li key={id}><a href="#" onClick={this.handleLoadFriend} data-username={friend.username} className="friend">{friend.username}</a> (<a href="#" onClick={this.handleDeleteFriend} data-username={friend.username} className="delete">x</a>)</li>
       ));
     }.bind(this));
     return (
