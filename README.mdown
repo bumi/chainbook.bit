@@ -1,0 +1,8 @@
+# About.bit
+
+A namecoin and remote storage based social network. 
+
+
+### run it
+    
+    python -m SimpleHTTPServer
