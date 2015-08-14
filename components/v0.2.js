@@ -7,7 +7,7 @@ var V2Profile = React.createClass({
   },
   avatar: function() {
     if(this.props.profile.avatar) {
-      return (<img src={this.props.profile.avatar.url} alt={this.props.profile.name} />)
+      return (<div className="avatar"><img src={this.props.profile.avatar.url} alt={this.props.profile.name} /></div>)
     }
   },
   website: function() {

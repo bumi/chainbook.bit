@@ -4,7 +4,7 @@ body {
   font-size: 15px;
   line-height: 1.7;
   margin: 0;
-  padding: 30px;
+  padding: 0;
 }
 
 a {
@@ -59,4 +59,56 @@ p, ul {
 
 ul {
   padding-left: 30px;
+}
+
+#friends-wrapper {
+  position: fixed;
+  right: 0px;
+  overflow: scroll;
+  width: 250px;
+  padding: 0px;
+  box-shadow: 1px 0 0 #f0f0f2 inset;
+  background-color: #e9eaed;
+  border-left: 1px solid #ccc;
+  height: 100%;
+}
+
+#new-friend {
+  position: absolute;
+  bottom: 0;
+}
+
+ul.firends-list {
+  padding: 0;
+  margin: 0;
+}
+ul.friends-list  {
+  margin: 60px 0 0 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+ul.friends-list li {
+  padding: 5px 10px;
+  margin: 0;
+}
+ul.friends-list li span {
+  padding-left: 20px;
+}
+ul.friends-list li:hover {
+  padding: 4px 10px;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+}
+
+ul.friends-list li .friend-delete {
+  float: right;
+}
+
+#profile-wrapper {
+  padding: 20px;
+}
+
+.avatar {
+  text-align: center;
 }

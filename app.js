@@ -30,7 +30,7 @@ var App = React.createClass({
       Repository.addFriend(username);
       var friends = this.state.friends;
       friends[username] = {"username": username};
-      this.setState({username: username, profileData: data, friends: friends});
+      this.setState({username: username, profileData: data.data.value, name: data.data.name, friends: friends});
       input.val("");
     }.bind(this))
     .fail(function(e) {
@@ -57,7 +57,16 @@ var App = React.createClass({
   render: function() {
     var friends = Object.keys(this.state.friends).map(function(id) {
       var friend = this.state.friends[id];
-      return <li key={id}><a href="#" onClick={this.handleLoadFriend} data-username={friend.username} className="friend">{friend.username}</a> (<a href="#" onClick={this.handleDeleteFriend} data-username={friend.username} className="delete">x</a>)</li>
+      return (
+        <li key={id}>
+          <div className="friend-delete"><a href="#" onClick={this.handleDeleteFriend} data-username={friend.username} className="delete">x</a></div>
+          <div className="friend-row">
+            <a href="#" onClick={this.handleLoadFriend} data-username={friend.username} className="friend">
+              {friend.username}
+            </a>
+          </div>
+        </li>
+      );
     }.bind(this));
 
     var profile = this.getProfile();
@@ -65,15 +74,15 @@ var App = React.createClass({
     return (
       <div>
         <div id="friends-wrapper">
-          <ul>
+          <ul className="friends-list">
             {friends}
-            <li>
-              <form onSubmit={this.handleAddNewFriend}>
-                <input id="new-friend-input" />
-                <button>Add friend</button>
-              </form>
-            </li>
           </ul>
+          <div id="new-friend">
+            <form onSubmit={this.handleAddNewFriend}>
+              <input id="new-friend-input" />
+              <button>Add friend</button>
+            </form>
+          </div>
         </div>
         <div id="profile-wrapper">
           {profile}
