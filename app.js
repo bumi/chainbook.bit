@@ -1,77 +1,25 @@
-var Name = React.createClass({
-  getDefaultProps: function() {
-    return { name: {} }
-  },
-  render: function() {
-    return <p>{this.props.name.formatted}</p>;
-  }
-});
-var Location = React.createClass({
-  getDefaultProps: function() {
-    return { location: {} }
-  },
-  render: function() {
-    return (
-      <p className="location">{this.props.location.formatted}</p>
-      );
-  }
-});
-var Summary = React.createClass({
-  render: function() {
-    return (<p className="summary">{this.props.summary}</p>);
-  }
-});
-var Websites = React.createClass({
-  getDefaultProps: function() {
-    return { websites: [] }
-  },
-  render: function() {
-    var websites = this.props.websites.map(function(website, i) {
-      return (
-        <li key={i} className="website"><a href={website.url}>{website.url}</a></li>
-      );
-    });
-    return (<ul>{websites}</ul>);
-  }
-});
-
-var Profile = React.createClass({
-  render: function() {
-    return (
-      <div>
-        <Name name={this.props.profile.name} />
-        <Summary summary={this.props.profile.summary} />
-        <Location location={this.props.profile.location} />
-        <Websites websites={this.props.profile.websites} />
-      </div>
-      );
-  }
-});
-
 var App = React.createClass({
-  loadFriends: function() {
-    remoteStorage.opennameFriendList.getFriends().then(function(friends) {
-      this.setState({friends: friends});
-    }.bind(this));
-  },
   getInitialState: function() {
-    return { username: null, profileData: {}, friends: []};
+    return { username: null, profileData: {}, friends: {}};
   },
   componentDidMount: function() {
-    this.loadFriends();
+    this.loadFriendsList();
+  },
+
+  loadFriendsList: function() {
+    Repository.getFriends().then(function(friends) {
+      this.setState({friends: friends});
+    }.bind(this));
   },
   handleLoadFriend: function(e) {
     var username = e.target.dataset['username'];
     this.loadFriend(username).done(function(data) {
-      this.setState({username: username, profileData: data});
+      this.setState({username: username, profileData: data.data.value, name: data.data.name, expiresIn: data.data.expires_in});
     }.bind(this));
   },
   loadFriend: function(username) {
     return $.ajax({
-      url: '/'+ username + '.json',
-      xhrFields: {
-          withCredentials: true
-       }
+      url: (Config.baseUrl + '/' + Config.blockchain + '/key/' + Config.key + username)
     });
   },
   handleAddNewFriend: function(e) {
@@ -79,35 +27,44 @@ var App = React.createClass({
     var input = $("#new-friend-input");
     var username = input.val();
     this.loadFriend(username).done(function(data) {
-        remoteStorage.opennameFriendList.addFriend(username);
-        var friends = this.state.friends;
-        friends[username] = {"username": username};
-        this.setState({username: username, profileData: data, friends: friends});
-        input.val("");
-      }.bind(this))
-      .fail(function(e) {
-        console.log(e);
-        alert("user not found")
-      });
+      Repository.addFriend(username);
+      var friends = this.state.friends;
+      friends[username] = {"username": username};
+      this.setState({username: username, profileData: data, friends: friends});
+      input.val("");
+    }.bind(this))
+    .fail(function(e) {
+      alert("user not found")
+    });
   },
   handleDeleteFriend: function(e) {
     e.preventDefault();
     username = e.target.dataset["username"];
-    remoteStorage.opennameFriendList.removeFriend(username);
+    Repository.removeFriend(username);
     var friends = this.state.friends;
     delete friends[username];
     this.setState({friends: friends});
   },
+  getProfile: function(data) {
+    if(!this.state.username) {
+      return null;
+    } else if(this.state.profileData.v == "0.2") {
+      return <V2Profile profile={this.state.profileData} username={this.state.username} />;
+    } else {
+      return <Unsupported profile={this.state.profileData} username={this.state.username} />;
+    }
+  },
   render: function() {
-    var friends = [];
-    $.each(this.state.friends, function(id, friend) {
-      friends.push((
-        <li key={id}><a href="#" onClick={this.handleLoadFriend} data-username={friend.username} className="friend">{friend.username}</a> (<a href="#" onClick={this.handleDeleteFriend} data-username={friend.username} className="delete">x</a>)</li>
-      ));
+    var friends = Object.keys(this.state.friends).map(function(id) {
+      var friend = this.state.friends[id];
+      return <li key={id}><a href="#" onClick={this.handleLoadFriend} data-username={friend.username} className="friend">{friend.username}</a> (<a href="#" onClick={this.handleDeleteFriend} data-username={friend.username} className="delete">x</a>)</li>
     }.bind(this));
+
+    var profile = this.getProfile();
+
     return (
       <div>
-        <div id="friends">
+        <div id="friends-wrapper">
           <ul>
             {friends}
             <li>
@@ -118,14 +75,19 @@ var App = React.createClass({
             </li>
           </ul>
         </div>
-        <div id="profile">
-          <Profile profile={this.state.profileData} />
+        <div id="profile-wrapper">
+          {profile}
         </div>
       </div>
     );
   }
 });
 
-$(function() {
-  React.render(<App />, document.getElementById('container'));
+
+var Unsupported = React.createClass({
+  render: function() {
+    var data = JSON.stringify(this.props.profile);
+    return (<code>{data}</code>);
+  }
 });
+

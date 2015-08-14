@@ -1,4 +1,4 @@
-RemoteStorage.defineModule('opennameFriendList', function(privateClient, publicClient) {
+RemoteStorage.defineModule('aboutbit', function(privateClient, publicClient) {
   privateClient.declareType('friend', {
     "description": "openname friend",
     "type": "object",
@@ -26,8 +26,4 @@ RemoteStorage.defineModule('opennameFriendList', function(privateClient, publicC
     }
   };
 });
-
-$(function() {
-  remoteStorage.access.claim('opennameFriendList', 'rw');
-  remoteStorage.displayWidget();
-});
+var Repository = remoteStorage.aboutbit;

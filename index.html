@@ -18,6 +18,29 @@
     <script src="react.js"></script>
     <script src="JSXTransformer.js"></script>
     <script src="friendlist.js"></script>
+    <script type="text/jsx" src="components/v0.2.js"></script>
     <script type="text/jsx" src="app.js"></script>
+    <script type="text/jsx">
+      $(function() {
+        remoteStorage.access.claim('contacts', 'rw');
+        remoteStorage.displayWidget();
+        remoteStorage.on('ready', function() {
+
+        });
+        remoteStorage.on('disconnected', function() {
+        });
+        remoteStorage.on('connecting', function() {
+        });
+        remoteStorage.on('authing', function() {
+        });
+
+        Config = {
+          blockchain: 'namecoin',
+          key: 'u%252F',
+          baseUrl: 'https://cors.5apps.com/?uri=https://api.dnschain.net/v1'
+        };
+        React.render(<App />, document.getElementById('container'));
+      });
+    </script>
   </body>
 </html>
