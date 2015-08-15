@@ -13,27 +13,48 @@ var App = React.createClass({
   },
   handleLoadFriend: function(e) {
     var username = e.target.dataset['username'];
-    this.loadFriend(username).done(function(data) {
+    this.loadFriend(username).then(function(data) {
       this.setState({username: username, profileData: data.data.value, name: data.data.name, expiresIn: data.data.expires_in});
     }.bind(this));
   },
   loadFriend: function(username) {
-    return $.ajax({
-      url: (Config.baseUrl + '/' + Config.blockchain + '/key/' + Config.key + username)
-    });
+    var promise = new Promise(function(resolve, reject) {
+
+      var followNext = function(data, resolve, reject) {
+        var next = data.data.value.next
+        if(!next) {
+          resolve(data);
+          return;
+        }
+        $.ajax({url: (Config.baseUrl + '/' + Config.blockchain + '/key/' + encodeURI(encodeURIComponent(next)))})
+          .done(function(nextData) {
+            data.data.value = $.extend(data.data.value, nextData.data.value);
+            delete data.data.value.next;
+            console.log(data.data.value);
+            followNext(data, resolve, reject);
+          })
+          .fail(function(e) { console.log('an error occured getting the next profile chunk. ignoring'); resolve(data) });
+      }
+
+      $.ajax({ url: (Config.baseUrl + '/' + Config.blockchain + '/key/' + Config.key + username) })
+        .done(function(data) { followNext(data, resolve, reject); })
+        .fail(function(e) {  reject(e); });
+      }
+    );
+    return promise;
   },
   handleAddNewFriend: function(e) {
     e.preventDefault();
     var input = $("#new-friend-input");
     var username = input.val();
-    this.loadFriend(username).done(function(data) {
+    this.loadFriend(username).then(function(data) {
       Repository.addFriend(username);
       var friends = this.state.friends;
       friends[username] = {"username": username};
       this.setState({username: username, profileData: data.data.value, name: data.data.name, friends: friends});
       input.val("");
     }.bind(this))
-    .fail(function(e) {
+    .catch(function(e) {
       alert("user not found")
     });
   },
@@ -48,7 +69,7 @@ var App = React.createClass({
   getProfile: function(data) {
     if(!this.state.username) {
       return null;
-    } else if(this.state.profileData.v == "0.2") {
+    } else if(this.state.profileData.v == "0.2" || this.state.profileData.next) {
       return <V2Profile profile={this.state.profileData} username={this.state.username} />;
     } else {
       return <Unsupported profile={this.state.profileData} username={this.state.username} />;
@@ -74,15 +95,15 @@ var App = React.createClass({
     return (
       <div>
         <div id="friends-wrapper">
-          <ul className="friends-list">
-            {friends}
-          </ul>
           <div id="new-friend">
             <form onSubmit={this.handleAddNewFriend}>
               <input id="new-friend-input" />
-              <button>Add friend</button>
+              <button>Add</button>
             </form>
           </div>
+          <ul className="friends-list">
+            {friends}
+          </ul>
         </div>
         <div id="profile-wrapper">
           {profile}
