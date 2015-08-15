@@ -1,8 +1,55 @@
 # About.bit
 
-A namecoin and remote storage based social network. 
+A namecoin and remotestorage based addressbook. 
+
+about.bit stores a list of contacts in [remotestorage](http://remotestorage.io) and loads the Blockchain ID information from the namecoin blockchain. 
 
 
-### run it
-    
+## Run it, Hack it
+
+about.bit is a pure client side application that runs in your browser.
+
     python -m SimpleHTTPServer
+    open localhost:8000
+
+about.bit uses [react.js](http://reactjs.com) the main code is in app.js components/v0.X.js is used to parse and display the profile JSON. 
+
+
+## FAQ
+
+### What is remotestorage?
+
+[remotestorage](https://remotestorage.io/) is an open protocol for per-user storage. It allows applications running inside a web browser to communicate with a data storage server that is hosted on a different domain. 
+It allows the user to store the application independently from the application with a storage provider of choise. 
+
+I'm recommending [5apps](https://5apps.com) as a remotestorage provider.
+
+### What is namecoin?
+
+[Namecoin](http://namecoin.org/) is a decentralized open source information registration and transfer system based on the Bitcoin cryptocurrency.
+about.bit basically displays nicely the profile information stored in the namecoin blockchain.
+
+### What is DNSChain?
+
+DNSChain is a blockchain-based DNS and HTTP server that exposes a RESTful API to blockchain stored data. 
+
+### How do I setup my profile?
+
+### Is it compatible with [Onename.com](https://onename.com/)?
+
+Yes, sure it is. Onename stores the profile data/passcard in the blockchain and reads it from there. You can easily add any person with a onename profile.
+
+## ToDo
+
+* Design - give the profiles a nice UI. (PR are welcome :) 
+* Support for v0.3 of the Blockchain ID profiles spec
+* Use the official remotestorage.io contacts module to store the blockchain ID names 
+* Support for dropbox as a remotestorage provider
+
+
+## Contact
+
+about.bit is an experiment by Michael Bumann/[nomadiclabs.net](http://nomadiclabs.net)
+
+Contact: hello@michaelbumann.com
+
