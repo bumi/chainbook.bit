@@ -2,12 +2,12 @@
 
 A namecoin and remotestorage based addressbook. 
 
-about.bit stores a list of contacts in [remotestorage](http://remotestorage.io) and loads the Blockchain ID information from the namecoin blockchain. 
+about.bit stores a list of contacts in [remotestorage](http://remotestorage.io) and loads the [BlockchainID](https://github.com/blockstack/blockstack/wiki/Blockchain-ID) information from the namecoin blockchain. 
 
 
 ## Use it
 
-Go to [aboutbit.5apps.com](https://aboutbit.5apps.com), login with a [remotestorage account](http://5apps.com/storage) and add your friends. (have a look at my profile: bumi)
+Go to [aboutbit.5apps.com](https://aboutbit.5apps.com), login with a [remotestorage account](http://5apps.com/storage) and add your friends. (have a look at my profile: [bumi](https://aboutbit.5apps.com/bumi))
 
 ### Get your blockchain ID
 
