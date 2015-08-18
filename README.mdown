@@ -5,6 +5,29 @@ A namecoin and remotestorage based addressbook.
 about.bit stores a list of contacts in [remotestorage](http://remotestorage.io) and loads the Blockchain ID information from the namecoin blockchain. 
 
 
+## Use it
+
+Go to [aboutbit.5apps.com](https://aboutbit.5apps.com), login with a [remotestorage account](http://5apps.com/storage) and add your friends. (have a look at my profile: bumi)
+
+### Get your blockchain ID
+
+#### Manually register your namecoin key
+
+about.bit loads all the information from the decentralized [Namecoin](https://namecoin.org/) blockchain. 
+To setup your profile you need to get your namecoin entry under the [u/ namespace](https://wiki.namecoin.org/index.php?title=OneName)
+
+* Get the [namecoin client](https://namecoin.info/?p=download) 
+* get some namecoins, for example from [shapeshift](https://shapeshift.io/#)
+* Register your u/your-name on namecoin. 
+* To setup your profile store a value following the [blockchain ID Schema](https://github.com/blockstack/blockstack/wiki/Blockchain-ID-Schema-v2)
+* Wait for the confirmation and checkout your profile on: aboutbit.5apps.com/your-name
+
+#### Use onename.com
+
+[Onename.com](https://onename.com/) is a webservice that allows you to easily create your blockchain ID. 
+Simply signup and provide your details. Onename stores all profile information in the decentralized namecoin blockchain and thus works with about.bit.
+
+
 ## Run it, Hack it
 
 about.bit is a pure client side application that runs in your browser.
@@ -40,6 +63,9 @@ DNSChain is a blockchain-based DNS and HTTP server that exposes a RESTful API to
 Yes, sure it is. Onename stores the profile data/passcard in the blockchain and reads it from there. You can easily add any person with a onename profile.
 
 ## ToDo
+
+The project is currently in a proof of concept status. The basic functionality is working but the user experience currently is not very good.
+If you have a feature idea or find a bug please create a github issue and Pull Requests are welcome! :)
 
 * Design - give the profiles a nice UI. (PR are welcome :) 
 * Support for v0.3 of the Blockchain ID profiles spec
