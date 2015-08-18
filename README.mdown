@@ -2,7 +2,7 @@
 
 A namecoin and remotestorage based addressbook. 
 
-about.bit stores a list of contacts in [remotestorage](http://remotestorage.io) and loads the [BlockchainID](https://github.com/blockstack/blockstack/wiki/Blockchain-ID) information from the namecoin blockchain. 
+about.bit stores a list of contacts in [remotestorage](http://remotestorage.io) and loads their [BlockchainID](https://github.com/blockstack/blockstack/wiki/Blockchain-ID) information from the namecoin blockchain. 
 
 
 ## Use it
@@ -56,7 +56,6 @@ about.bit basically displays nicely the profile information stored in the nameco
 
 DNSChain is a blockchain-based DNS and HTTP server that exposes a RESTful API to blockchain stored data. 
 
-### How do I setup my profile?
 
 ### Is it compatible with [Onename.com](https://onename.com/)?
 
