@@ -110,6 +110,10 @@ var App = React.createClass({
           <ul className="friends-list">
             {friends}
           </ul>
+          <div className="about">
+            <h3>About</h3>
+            <p>your namecoin and remotestorage based addressbook. <a href="https://github.com/bumi/about.bit#readme">Read more about the project on Github</a></p>
+          </div>
         </div>
         <div id="profile-wrapper">
           {profile}

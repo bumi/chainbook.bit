@@ -123,3 +123,6 @@ ul.friends-list li .friend-delete {
 .avatar img {
   width: 200px;
 }
+.about {
+  padding: 10px;
+}
