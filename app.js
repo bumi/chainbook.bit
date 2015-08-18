@@ -4,8 +4,15 @@ var App = React.createClass({
   },
   componentDidMount: function() {
     this.loadFriendsList();
+    var username = document.location.pathname.replace(/^\/|#/, '');
+    if(username && username != '') {
+      this.loadFriend(username).then(function(data) {
+        this.setState({username: username, profileData: data.data.value, name: data.data.name, expiresIn: data.data.expires_in});
+      }.bind(this)).catch(function(e) {
+        document.location = '/';
+      });
+    }
   },
-
   loadFriendsList: function() {
     Repository.getFriends().then(function(friends) {
       this.setState({friends: friends});
@@ -30,7 +37,6 @@ var App = React.createClass({
           .done(function(nextData) {
             data.data.value = $.extend(data.data.value, nextData.data.value);
             delete data.data.value.next;
-            console.log(data.data.value);
             followNext(data, resolve, reject);
           })
           .fail(function(e) { console.log('an error occured getting the next profile chunk. ignoring'); resolve(data) });
@@ -55,7 +61,7 @@ var App = React.createClass({
       input.val("");
     }.bind(this))
     .catch(function(e) {
-      alert("user not found")
+      alert("user not found");
     });
   },
   handleDeleteFriend: function(e) {
