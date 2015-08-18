@@ -72,6 +72,13 @@ If you have a feature idea or find a bug please create a github issue and Pull R
 * Use the official remotestorage.io contacts module to store the blockchain ID names 
 * Support for dropbox as a remotestorage provider
 
+## See also
+
+* [Onename](https://onename.com/) 
+* [Nametiles](https://nametiles.co/) - Tag people on your site using the power of the blockchain
+* [Blockstack](https://blockstack.org/) - The Open Source Blockchain Community
+* [NameID](https://nameid.org/) - Namecoin + OpenID = NameID
+
 
 ## Contact
 
