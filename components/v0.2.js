@@ -1,6 +1,6 @@
 var V2Profile = React.createClass({
   displayElement: function(key, tag) {
-    if(!tag) { var tag = 'p' }
+    if(tag === undefined) { tag = 'p' }
     if(this.props.profile[key]) {
       return React.createElement(tag, {className:key}, this.props.profile[key])
     }
