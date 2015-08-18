@@ -1,24 +1,7 @@
 var V2Profile = React.createClass({
-  displayElement: function(key, tag) {
-    if(tag === undefined) { tag = 'p' }
-    if(this.props.profile[key]) {
-      return React.createElement(tag, {className:key}, this.props.profile[key])
-    }
-  },
   avatar: function() {
     if(this.props.profile.avatar) {
       return (<div className="avatar"><img src={this.props.profile.avatar.url} alt={this.props.profile.name} /></div>)
-    }
-  },
-  website: function() {
-    if(this.props.profile.website) {
-      return (<p className="website"><a href={this.props.profile.website}>{this.props.profile.website}</a></p>);
-    }
-  },
-  pgp: function() {
-    if(this.props.profile.pgp) {
-      var pgp = this.props.profile.pgp;
-      return (<p className="pgp-fingerprint"><a href={pgp.url}>{pgp.fingerprint}</a></p>);
     }
   },
 
@@ -44,16 +27,25 @@ var V2Profile = React.createClass({
   },
 
   render: function() {
+    var profile = this.props.profile;
     return (
       <div className="profile" style={this.getStyle()} >
-        {this.avatar()}
+        {profile.avatar &&
+          <div className="avatar">
+            <img src={profile.avatar.url} alt={profile.name} />
+          </div>}
         <div className="profile-info">
-          {this.displayElement('name', 'h1')}
-          {this.displayElement('bio', 'h2')}
-          {this.displayElement('location')}
-          {this.website()}
+          {profile.name &&
+            <h1>{profile.name}</h1>}
+          {profile.name &&
+            <h2>{profile.name}</h2>}
+          {profile.location &&
+            <p>{profile.location}</p>}
+          {profile.website &&
+            <p className="website"><a href={profile.website}>{profile.website}</a></p>}
           {this.profiles()}
-          {this.pgp()}
+          {profile.pgp &&
+            <p className="pgp-fingerprint"><a href={profile.pgp.url}>{profile.pgp.fingerprint}</a></p>}
         </div>
       </div>
     );
