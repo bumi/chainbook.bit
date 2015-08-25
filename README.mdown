@@ -1,7 +1,7 @@
 # About.bit 
 ## - A namecoin and remotestorage based addressbook
 
-about.bit is a viewer for profile [blockchainID](https://github.com/blockstack/blockstack/wiki/Blockchain-ID) data stored in the decentralized namecoin blockchain.  
+about.bit is a viewer for profile [blockchainID](https://github.com/blockstack/blockstack/wiki/Blockchain-ID) data stored in the decentralized [namecoin](http://namecoin.info) blockchain.  
 The list of your contacts are stored in your favorite storage via [remotestorage](http://remotestorage.io). 
 
 
