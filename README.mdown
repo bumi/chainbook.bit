@@ -37,7 +37,7 @@ about.bit is a pure client side application that runs in your browser.
     python -m SimpleHTTPServer
     open localhost:8000
 
-about.bit uses [react.js](http://reactjs.com) the main code is in app.js components/v0.X.js is used to parse and display the profile JSON. 
+about.bit uses [react.js](http://reactjs.com) the main code is in app.js, components/v0.X.js is used to parse and display the profile JSON. 
 
 
 ## FAQ
