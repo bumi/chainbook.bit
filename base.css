@@ -116,6 +116,9 @@ ul.friends-list li .friend-delete {
 .profile {
   padding: 20px;
   height: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 .avatar {
   text-align: center;

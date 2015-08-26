@@ -21,7 +21,7 @@ var V2Profile = React.createClass({
   getStyle: function() {
     var style = {};
     if(this.props.profile.cover) {
-      style.background = 'url(' + this.props.profile.cover.url + ') no-repeat fixed';
+      style.backgroundImage = 'url(' + this.props.profile.cover.url + ')';
     }
     return style;
   },
