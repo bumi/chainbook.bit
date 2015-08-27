@@ -40,15 +40,15 @@ var V2Profile = React.createClass({
         <div className="profile-info">
           {profile.name &&
             <h1>{profile.name}</h1>}
-          {profile.name &&
-            <h2>{profile.name}</h2>}
+          {profile.bio &&
+            <h2>{profile.bio}</h2>}
           {profile.location &&
             <p>{profile.location}</p>}
           {profile.website &&
             <p className="website"><a href={profile.website}>{profile.website}</a></p>}
           {this.profiles()}
           {profile.pgp &&
-            <p className="pgp-fingerprint"><a href={profile.pgp.url}>{profile.pgp.fingerprint}</a></p>}
+            <p className="pgp-fingerprint">GPG: <a href={profile.pgp.url}>{profile.pgp.fingerprint}</a></p>}
         </div>
       </div>
     );

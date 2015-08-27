@@ -103,7 +103,7 @@ var App = React.createClass({
         <div id="friends-wrapper">
           <div id="new-friend">
             <form onSubmit={this.handleAddNewFriend}>
-              <input id="new-friend-input" />
+              <div className="hint hint--bottom" data-hint="The blockchainID of your friend. - try: bumi"><input id="new-friend-input" placeholder="namecoin blockchainID" /></div>
               <button>Add</button>
             </form>
           </div>
