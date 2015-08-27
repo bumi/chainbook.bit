@@ -15,6 +15,9 @@ var V2Profile = React.createClass({
       var url = 'https://github.com/' + this.props.profile.github.username;
       profiles.push(<div className="github">github: <a href={url}>{this.props.profile.github.username}</a></div>);
     }
+		if(this.props.profile.bitcoin) {
+			profiles.push(<div className="bitcoin">bitcoin: {this.props.profile.bitcoin.address}</div>);
+		}
     return profiles;
   },
 
