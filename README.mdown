@@ -1,9 +1,10 @@
-# About.bit 
+# [About.bit](https://aboutbit.5apps.com/)
 ## - A namecoin and remotestorage based addressbook
 
 about.bit is a viewer for profile [blockchainID](https://github.com/blockstack/blockstack/wiki/Blockchain-ID) data stored in the decentralized [namecoin](http://namecoin.info) blockchain.  
 The list of your contacts are stored in your favorite storage via [remotestorage](http://remotestorage.io). 
 
+**Please note**: the name will change because the about.bit domain was caught by a domain squatter. Use [https://aboutbit.5apps.com/](https://aboutbit.5apps.com/) (or your own) for now. Let [me](mailto:hello@michaelbumann.com) know if you have a suggestion for a good name :)
 
 ## Use it
 
