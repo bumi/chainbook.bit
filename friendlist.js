@@ -1,4 +1,4 @@
-RemoteStorage.defineModule('aboutbit', function(privateClient, publicClient) {
+RemoteStorage.defineModule('chainbook', function(privateClient, publicClient) {
   privateClient.declareType('friend', {
     "description": "openname friend",
     "type": "object",

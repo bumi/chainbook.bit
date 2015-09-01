@@ -1,14 +1,13 @@
-# [About.bit](https://aboutbit.5apps.com/)
+# [chainbook.bit](http://chainbook.bit/)
+# chainbook.bit 
 ## - A namecoin and remotestorage based addressbook
 
-about.bit is a viewer for profile [blockchainID](https://github.com/blockstack/blockstack/wiki/Blockchain-ID) data stored in the decentralized [namecoin](http://namecoin.info) blockchain.  
+chainbook.bit is a viewer for profile [blockchainID](https://github.com/blockstack/blockstack/wiki/Blockchain-ID) data stored in the decentralized [namecoin](http://namecoin.info) blockchain.  
 The list of your contacts are stored in your favorite storage via [remotestorage](http://remotestorage.io). 
-
-**Please note**: the name will change because the about.bit domain was caught by a domain squatter. Use [https://aboutbit.5apps.com/](https://aboutbit.5apps.com/) (or your own) for now. Let [me](mailto:hello@michaelbumann.com) know if you have a suggestion for a good name :)
 
 ## Use it
 
-Go to [aboutbit.5apps.com](https://aboutbit.5apps.com), login with a [remotestorage account](http://5apps.com/storage) and add your friends. (have a look at my profile: [bumi](https://aboutbit.5apps.com/bumi))
+Go to [chainbook.5apps.com](https://chainbook.5apps.com) (or [chainbook.bit](http://chainbook.bit)), login with a [remotestorage account](http://5apps.com/storage) and add your friends. (have a look at my profile: [bumi](https://chainbook.5apps.com/bumi))
 
 Or simply deploy this HTML page wherever you want. (locally on your machine or on any server)
 
@@ -16,29 +15,29 @@ Or simply deploy this HTML page wherever you want. (locally on your machine or o
 
 #### Manually register your namecoin key
 
-about.bit loads all the information from the decentralized [Namecoin](https://namecoin.org/) blockchain. 
+chainbook.bit loads all the information from the decentralized [Namecoin](https://namecoin.org/) blockchain. 
 To setup your profile you need to get your namecoin entry under the [u/ namespace](https://wiki.namecoin.org/index.php?title=OneName)
 
 * Get the [namecoin client](https://namecoin.info/?p=download) 
 * get some namecoins, for example from [shapeshift](https://shapeshift.io/#)
 * Register your u/your-name on namecoin. 
 * To setup your profile store a value following the [blockchain ID Schema](https://github.com/blockstack/blockstack/wiki/Blockchain-ID-Schema-v2)
-* Wait for the confirmation and checkout your profile on: aboutbit.5apps.com/your-name
+* Wait for the confirmation and checkout your profile on: chainbook.5apps.com/your-name
 
 #### Use onename.com
 
 [Onename.com](https://onename.com/) is a webservice that allows you to easily create your blockchain ID. 
-Simply signup and provide your details. Onename stores all profile information in the decentralized namecoin blockchain and thus works with about.bit.
+Simply signup and provide your details. Onename stores all profile information in the decentralized namecoin blockchain and thus works with chainbook.bit.
 
 
 ## Run it, Hack it
 
-about.bit is a pure client side application that runs in your browser.
+chainbook.bit is a pure client side application that runs in your browser.
 
     python -m SimpleHTTPServer
     open localhost:8000
 
-about.bit uses [react.js](http://reactjs.com) the main code is in app.js, components/v0.X.js is used to parse and display the profile JSON. 
+chainbook.bit uses [react.js](http://reactjs.com) the main code is in app.js, components/v0.X.js is used to parse and display the profile JSON. 
 
 
 ## FAQ
@@ -53,7 +52,7 @@ I'm recommending [5apps](https://5apps.com) as a remotestorage provider.
 ### What is namecoin?
 
 [Namecoin](http://namecoin.org/) is a decentralized open source information registration and transfer system based on the Bitcoin cryptocurrency.
-about.bit basically displays nicely the profile information stored in the namecoin blockchain.
+chainbook.bit basically displays nicely the profile information stored in the namecoin blockchain.
 
 ### What is DNSChain?
 
@@ -84,7 +83,7 @@ If you have a feature idea or find a bug please create a github issue and Pull R
 
 ## Contact
 
-about.bit is an experiment by Michael Bumann/[nomadiclabs.net](http://nomadiclabs.net)
+chainbook.bit is an experiment by Michael Bumann/[nomadiclabs.net](http://nomadiclabs.net)
 
 Contact: hello@michaelbumann.com
 
