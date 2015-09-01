@@ -113,9 +113,9 @@ var App = React.createClass({
           <div className="about">
             <h3>About:</h3>
             <p>
-              chainbook.bit is a <a href="http://namecoin.org">namecoin</a> and <a href="http://remotestorage.io">remotestorage</a> based addressbook. <a href="https://github.com/bumi/about.bit#readme">Read more about the project on Github</a>
+              chainbook.bit is a <a href="http://namecoin.org">namecoin</a> and <a href="http://remotestorage.io">remotestorage</a> based addressbook. <a href="https://github.com/bumi/chainbook.bit#readme">Read more about the project on Github</a>
             </p>
-            <p><small>Wanted: <a href="http://github.com/bumi/about.bit">Help build a beautiful interface</a></small></p>
+            <p><small>Wanted: <a href="http://github.com/bumi/chainbook.bit">Help build a beautiful interface</a></small></p>
             <p>Contact: <a href="http://michaelbumann.com">michaelbumann.com</a></p>
           </div>
         </div>
