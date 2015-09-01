@@ -26,4 +26,4 @@ RemoteStorage.defineModule('chainbook', function(privateClient, publicClient) {
     }
   };
 });
-var Repository = remoteStorage.aboutbit;
+var Repository = remoteStorage.chainbook;
