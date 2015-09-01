@@ -1,5 +1,4 @@
 # [chainbook.bit](http://chainbook.bit/)
-# chainbook.bit 
 ## - A namecoin and remotestorage based addressbook
 
 chainbook.bit is a viewer for profile [blockchainID](https://github.com/blockstack/blockstack/wiki/Blockchain-ID) data stored in the decentralized [namecoin](http://namecoin.info) blockchain.  
